@@ -79,6 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li class="list-group-item">
                     <h5><?php echo htmlspecialchars($question['question'], ENT_QUOTES, 'UTF-8'); ?> <span class="badge badge-secondary"><?php echo htmlspecialchars($question['tag'], ENT_QUOTES, 'UTF-8'); ?></span></h5>
                     <p><?php echo nl2br(htmlspecialchars($question['answer'], ENT_QUOTES, 'UTF-8')); ?></p>
+                    <a href="edit_interview.php?id=<?php echo $question['id']; ?>" class="btn btn-warning btn-sm">編集</a>
+                </li>
+
                 </li>
             <?php endforeach; ?>
         </ul>
