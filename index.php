@@ -21,7 +21,7 @@ $tasks = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo App</title>
+    <title>就活管理アプリ</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -31,7 +31,7 @@ $tasks = $stmt->fetchAll();
 
 <body>
     <div class="container">
-        <h1 class="mt-5">ToDo App</h1>
+        <h1 class="mt-5">就活管理アプリ</h1>
         <form action="add_task.php" method="POST">
             <div class="form-group">
                 <label for="tag">タグ</label>
