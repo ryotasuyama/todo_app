@@ -5,7 +5,8 @@ require 'db.php';
 $stmt = $pdo->query('SELECT * FROM applications');
 $applications = $stmt->fetchAll();
 
-function generateDateOptions() {
+function generateDateOptions()
+{
     $options = '<option value="未定">未定</option>';
     for ($i = 0; $i < 365; $i++) {
         $date = date('Y-m-d', strtotime("+$i days"));
@@ -17,12 +18,14 @@ function generateDateOptions() {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>応募管理</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">応募管理</h1>
@@ -38,6 +41,7 @@ function generateDateOptions() {
             <div class="form-group">
                 <label for="status">ステータス</label>
                 <select name="status" class="form-control">
+                    <option value="応募予定">応募予定</option>
                     <option value="ES通過">ES通過</option>
                     <option value="webテスト通過">webテスト通過</option>
                     <option value="一次面接通過">一次面接通過</option>
@@ -69,7 +73,7 @@ function generateDateOptions() {
                 <li class="list-group-item">
                     <h5><?php echo htmlspecialchars($application['company_name'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($application['job_title'], ENT_QUOTES, 'UTF-8'); ?></h5>
                     <p>ステータス: <?php echo htmlspecialchars($application['status'], ENT_QUOTES, 'UTF-8'); ?></p>
-                    <p>応募締め切り: <?php echo htmlspecialchars($application['apply_date'] ?? '未定',ENT_QUOTES, 'UTF-8'); ?></p>
+                    <p>応募締め切り: <?php echo htmlspecialchars($application['apply_date'] ?? '未定', ENT_QUOTES, 'UTF-8'); ?></p>
                     <p>面接予定日: <?php echo htmlspecialchars($application['interview_date'] ?? '未定', ENT_QUOTES, 'UTF-8'); ?></p>
                     <p>メモ: <?php echo nl2br(htmlspecialchars($application['notes'] ?? '特になし', ENT_QUOTES, 'UTF-8')); ?></p>
                     <a href="edit_application.php?id=<?php echo $application['id']; ?>" class="btn btn-warning btn-sm">編集</a>
@@ -81,4 +85,5 @@ function generateDateOptions() {
         </div>
     </div>
 </body>
+
 </html>

@@ -39,6 +39,7 @@ function generateDateOptions() {
             <div class="form-group">
                 <label for="status">ステータス</label>
                 <select name="status" class="form-control">
+                    <option value="横暴予定" <?php if ($application['status'] === '応募予定') echo 'selected'; ?>>応募予定</option>
                     <option value="ES通過" <?php if ($application['status'] === 'ES通過') echo 'selected'; ?>>ES通過</option>
                     <option value="webテスト通過" <?php if ($application['status'] === 'webテスト通過') echo 'selected'; ?>>webテスト通過</option>
                     <option value="一次面接通過" <?php if ($application['status'] === '一次面接通過') echo 'selected'; ?>>一次面接通過</option>
