@@ -1,15 +1,12 @@
 <?php
 require 'db.php';
 
-// タグで絞り込みがされているか確認
 $filter_tag = isset($_GET['tag']) ? $_GET['tag'] : '';
 
 if ($filter_tag) {
-    // タグで絞り込んでタスクを取得
     $stmt = $pdo->prepare('SELECT * FROM tasks WHERE tag = ? ORDER BY due_date ASC, created_at ASC');
     $stmt->execute([$filter_tag]);
 } else {
-    // 全てのタスクを取得
     $stmt = $pdo->query('SELECT * FROM tasks ORDER BY due_date ASC, created_at ASC');
 }
 
